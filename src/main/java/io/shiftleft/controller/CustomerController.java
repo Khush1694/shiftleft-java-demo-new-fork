@@ -121,6 +121,17 @@ public class CustomerController {
 		if (null == customer) {
 		  throw new CustomerNotFoundException();
 	  }
+
+	
+	  Account account = new Account(4242l,1234, "savings", 1, 0);
+	  log.info("Account Data is {}", account);
+	  log.info("Customer Data is {}", customer);
+	  log.info("Customer Test Data is {}", customer);
+	  log.info("Here are the new account details {}", customer);
+        dispatchEventToSalesForce(String.format(" Customer %s Logged into SalesForce is listed here:Customer %s Logged into SalesForce is listed hereCustomer %s Logged into SalesForce is listed here", customer));
+	dispatchEventToSalesForce(String.format(" Customer %s Logged into SalesForce is listed here:", customer));
+
+      return customer;
     }
 
     /**
