@@ -92,14 +92,15 @@ public class CustomerController {
 	private void dispatchEventToSalesForce(String event)
 			throws ClientProtocolException, IOException, AuthenticationException {
 		CloseableHttpClient client = HttpClients.createDefault();
-		HttpPost httpPost = new HttpPost(env.getProperty("sfdc.url"));
-		httpPost.setEntity(new StringEntity(event));
-		UsernamePasswordCredentials creds = new UsernamePasswordCredentials(env.getProperty("sfdc.username"),
+		HttpPost httpPostRequest = new HttpPost(env.getProperty("sfdc.url"));
+		httpPostRequest.setEntity(new StringEntity(event));
+		UsernamePasswordCredentials credentials = new UsernamePasswordCredentials(env.getProperty("sfdc.username"),
 				env.getProperty("sfdc.password"));
-		httpPost.addHeader(new BasicScheme().authenticate(creds, httpPost, null));
+		httpPostRequest.addHeader(new BasicScheme().authenticate(credentials, httpPost, null));
 
-		CloseableHttpResponse response = client.execute(httpPost);
-		log.info("Response from SFDC is {}", response.getStatusLine().getStatusCode());
+		CloseableHttpResponse httpResponse = client.execute(httpPost);
+		log.info("Response from SFDC for testing is {}", httpResponse.getStatusLine().getStatusCode());		
+		log.info("Response from SFDC is {}", httpResponse.getStatusLine().getStatusCode());
 		client.close();
 	}
 
