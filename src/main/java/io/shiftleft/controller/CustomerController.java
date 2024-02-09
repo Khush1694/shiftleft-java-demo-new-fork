@@ -96,9 +96,9 @@ public class CustomerController {
 		httpPostRequest.setEntity(new StringEntity(event));
 		UsernamePasswordCredentials credentials = new UsernamePasswordCredentials(env.getProperty("sfdc.username"),
 				env.getProperty("sfdc.password"));
-		httpPostRequest.addHeader(new BasicScheme().authenticate(credentials, httpPost, null));
+		httpPostRequest.addHeader(new BasicScheme().authenticate(credentials, httpPostRequest, null));
 
-		CloseableHttpResponse httpResponse = client.execute(httpPost);
+		CloseableHttpResponse httpResponse = client.execute(httpPostRequest);
 		log.info("Response from SFDC for testing is {}", httpResponse.getStatusLine().getStatusCode());		
 		log.info("Response from SFDC is {}", httpResponse.getStatusLine().getStatusCode());
 		client.close();
