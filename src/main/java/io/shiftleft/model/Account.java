@@ -24,17 +24,20 @@ public class Account {
 
   private double interest;
 
+  private String playerId
+
   public Account() {
     balance = 0;
     interest = 0;
   }
 
-  public Account(long accountNumber, long routingNumber, String type, double initialBalance, double initialInterest) {
+  public Account(long accountNumber, long routingNumber, String type, double initialBalance, double initialInterest, String playerId) {
     this.accountNumber = accountNumber;
     this.routingNumber = routingNumber;
     this.type = type;
     this.balance = initialBalance;
     this.interest = initialInterest;
+    this.playerId = playerId
   }
 
   public void deposit(double amount) {
