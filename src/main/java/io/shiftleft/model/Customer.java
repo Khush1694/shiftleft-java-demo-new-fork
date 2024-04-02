@@ -16,7 +16,7 @@ public class Customer {
   public Customer() {
   }
 
-  public Customer(String customerId, int clientId, String firstName, String lastName, Date dateOfBirth, String ssn,
+  public Customer(String customerId, int clientId, String firstName, String lastName, String middleName, Date dateOfBirth, String ssn,
       String socialInsurancenum, String tin, String phoneNumber, Address address, Set<Account> accounts) {
     super();
     this.clientId = clientId;
@@ -30,8 +30,7 @@ public class Customer {
     this.phoneNumber = phoneNumber;
     this.address = address;
     this.accounts = accounts;
-    this.gender = gender;
-    this.totalWithTax = TotalWithTax
+    this.middleName = middleName;
   }
 
   @Id
@@ -56,7 +55,7 @@ public class Customer {
 
   private String phoneNumber;
 
-  private String gender;
+  private String middleName;
 
   private int totalWithTax;
   
@@ -118,8 +117,8 @@ public class Customer {
     return accounts;
   }
 
-  public String getGender() {
-    return gender;
+  public String getMiddleName() {
+    return middleName;
   }
 
   public void setId(long id) {
@@ -170,8 +169,8 @@ public class Customer {
     this.accounts = accounts;
   }
 
-  public void setGender(String gender) {
-    this.gender = gender;
+  public void setMiddleName(String gender) {
+    this.middleName = middleName;
   }
 
    public int settotalWithTax(){
@@ -181,7 +180,7 @@ public class Customer {
   @Override
   public String toString() {
     return "Customer [id=" + id + ", customerId=" + customerId + ", clientId=" + clientId + ", firstName=" + firstName
-        + ", lastName=" + lastName + ", dateOfBirth=" + dateOfBirth + ", ssn=" + ssn + ", socialInsurancenum="
+        + ", lastName=" + lastName + ", middleName=" + middleName + "dateOfBirth=" + dateOfBirth + ", ssn=" + ssn + ", socialInsurancenum="
         + socialInsurancenum + ", tin=" + tin + ", phoneNumber=" + phoneNumber + ", address=" + address + ", accounts="
         + accounts + "]";
   }
