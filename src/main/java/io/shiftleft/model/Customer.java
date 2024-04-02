@@ -31,6 +31,7 @@ public class Customer {
     this.address = address;
     this.accounts = accounts;
     this.gender = gender;
+    this.muskanName = muskanName
   }
 
   @Id
