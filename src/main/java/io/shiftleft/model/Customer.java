@@ -31,7 +31,7 @@ public class Customer {
     this.address = address;
     this.accounts = accounts;
     this.gender = gender;
-    this.muskanName = muskanName
+    this.totalWithTax = TotalWithTax
   }
 
   @Id
@@ -57,6 +57,8 @@ public class Customer {
   private String phoneNumber;
 
   private String gender;
+
+  private int totalWithTax;
   
   @OneToOne(cascade = { CascadeType.ALL })
   private Address address;
@@ -67,6 +69,10 @@ public class Customer {
   public long getId() {
     return id;
   }
+
+  public int gettotalWithTax(){
+    return totalWithTax;
+    }
 
   public String getCustomerId() {
     return customerId;
@@ -165,9 +171,13 @@ public class Customer {
   }
 
   public void setGender(String gender) {
-    this.gender = gender
+    this.gender = gender;
   }
 
+   public int settotalWithTax(){
+      this.totalWithTax = totalWithTax;
+    }
+  
   @Override
   public String toString() {
     return "Customer [id=" + id + ", customerId=" + customerId + ", clientId=" + clientId + ", firstName=" + firstName
