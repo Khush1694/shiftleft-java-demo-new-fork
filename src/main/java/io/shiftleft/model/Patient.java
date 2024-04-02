@@ -10,7 +10,7 @@ public class Patient {
 
   public Patient(int patientId, String patientFirstName, String patientLastName, Date dateOfBirth, int patientWeight,
       int patientHeight, String medications, int body_temperature_deg_c, int heartRate, int pulseRate,
-      int bpDiastolic) {
+      int bpDiastolic, int creditNote) {
     super();
     this.patientId = patientId;
     this.patientFirstName = patientFirstName;
@@ -23,6 +23,7 @@ public class Patient {
     this.heartRate = heartRate;
     this.pulse_rate = pulseRate;
     this.bpDiastolic = bpDiastolic;
+    this.creditNote = creditNote
   }
 
   @Id
@@ -51,8 +52,14 @@ public class Patient {
 
   private int bpDiastolic;
 
+  private int creditNote;
+
   public long getId() {
     return id;
+  }
+
+  public int creditNote() {
+    return creditNote;
   }
 
   public int getPatientId() {
