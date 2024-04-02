@@ -30,6 +30,7 @@ public class Customer {
     this.phoneNumber = phoneNumber;
     this.address = address;
     this.accounts = accounts;
+    this.gender = gender;
   }
 
   @Id
@@ -54,6 +55,8 @@ public class Customer {
 
   private String phoneNumber;
 
+  private String gender;
+  
   @OneToOne(cascade = { CascadeType.ALL })
   private Address address;
 
@@ -108,6 +111,10 @@ public class Customer {
     return accounts;
   }
 
+  public String getGender() {
+    return gender;
+  }
+
   public void setId(long id) {
     this.id = id;
   }
@@ -154,6 +161,10 @@ public class Customer {
 
   public void setAccounts(Set<Account> accounts) {
     this.accounts = accounts;
+  }
+
+  public void setGender(String gender) {
+    this.gender = gender
   }
 
   @Override
